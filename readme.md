@@ -34,3 +34,4 @@ Flask Admin: Flask uygulamaları için yönetici paneli oluşturmayı sağlayan 
 NLTK: Doğal dil işleme (Natural Language Processing - NLP) işlemleri için kullanılan bir kütüphane.
 Keras: Derin öğrenme modelleri oluşturmak için kullanılan bir kütüphane.
 Yukarıdaki kütüphaneleri requirements.txt dosyasında bulabilirsiniz.
+![yeşilay](https://github.com/biboemre/BiboChatbotApp/assets/97239219/a0497e89-d13f-4eb4-942f-7ce43395685e)
