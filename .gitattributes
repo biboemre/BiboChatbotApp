@@ -1,3 +1,1 @@
-*.css linguist-detectable=false
-*.powershell linguist-detectable=false
 *.python linguist-detectable=true
