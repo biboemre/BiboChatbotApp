@@ -1,0 +1,99 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Merhaba", "Selam", "slm"],
+      "responses": ["Merhabalar", "Hey naber"]
+    },
+    {
+      "tag": "how_are_you",
+      "patterns": ["Nasılsın?", "Naber", "ne yapıyorsun?"],
+      "responses": ["İyiyim, teşekkür ederim. Sen nasılsın?", "İyi olduğumu söyleyebilirim. Sen nasılsın?"]
+    },
+    {
+      "tag": "user_mood",
+      "patterns": ["İyiyim","iyi", "Fena değil", "Ben de iyiyim"],
+      "responses": ["Ne güzel! İyi olduğunu duyduğuma sevindim. Sana nasıl yardımcı olabilirim? Herhangi bir konuda bilgi almak veya sorularını yanıtlamak için buradayım."]
+    },    
+    {
+      "tag": "goodbye",
+      "patterns": ["Hoşça kal", "Sonra görüşürüz", "Güle güle", "Tamam hoşça kal", "Hoşça kal"],
+      "responses": ["Görüşürüz!", "Tamam hoşça kal", "Sonra görüşürüz dostum"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Teşekkürler", "Sağol", "Yardımcı oldu", "Harika, teşekkürler", "Bana yardım ettiğiniz için teşekkürler"],
+      "responses": ["Yardımcı olabildiysem ne mutlu bana!",  "Benim için bir zevktir", "Rica ederim", "Rica ederim dostum"]
+    },
+    {
+      "tag": "name",
+      "patterns": ["Adınız ne", "İsminiz ne", "Bana adınızı söyleyin", "Siz kimsiniz", "Kendiniz hakkında bana bir şeyler söyleyin", "Sen kimsin"],
+      "responses": ["Ben Bibo'yum", "Benim adım Bibo", "Kısa adımla Bibo diye hitap edebilirsiniz", "Adım Bibo"]
+    },
+    {
+      "tag": "options",
+      "patterns": ["Nasıl yardımcı olabilirsiniz", "Neleri biliyorsunuz", "Amacınız nedir", "Nasıl yardımcı olabilirsiniz"],
+      "responses": ["Size sigara bırkma konusu hakkında bilgi verebilirim", "Size sigara bırakma sürecinde yardımcı olabilirim"]
+    },
+    {
+      "tag": "quit_smoking",
+      "patterns": ["Sigara bırakmak istiyorum", "Sigarayı nasıl bırakabilirim?", "Sigara bırakma yöntemleri", "Sigara bırakma konusunda yardım", "Sigarayı bırakmak için öneriler"],
+      "responses": ["Sigara bırakma sürecine başlamadan önce mevcut sigara tüketiminizi anlamam önemlidir. Günde kaç paket sigara tüketiyorsunuz?"]
+    },
+    {
+      "tag": "sıfır",
+      "patterns": ["sıfır","0","sıfır paket","hiç kullanmıyorum"],
+      "responses": ["Sigara içmiyorsanız, bu harika umarım bu şekilde decam edebilirsiniz."]
+    },
+    {
+      "tag": "bir",
+      "patterns": ["bir","1"],
+      "responses": ["Günde 1 paket sigara içmek, sigarayı bırakma sürecine başlamak için iyi bir adımdır. Hedefinize ulaşmanız için size yardımcı olabilirim. Sigarayı azaltarak başlayabilir ve zamanla tamamen bırakabilirsiniz. Tetikleyici durumları belirleyin ve alternatif yollar bulun. Destek gruplarına veya sigara bırakma programlarına katılarak motivasyonunuzu artırabilirsiniz."]
+    },
+    {
+      "tag": "iki paket",
+      "patterns": ["iki","2"],
+      "responses": ["Günde 2 paket sigara içmek, sigara tüketiminin biraz daha yüksek olduğunu göstermektedir. Sigarayı bırakmak için kendinize bir plan yapmak önemlidir. Sigarayı azaltarak başlayabilir ve daha sonra tamamen bırakabilirsiniz. Sağlıklı alışkanlıklar geliştirin, stres yönetimi tekniklerini kullanın ve destek alın. Sigarayı bırakma programları veya profesyonel yardım size yol gösterebilir."]
+    },
+    {
+      "tag": "three",
+      "patterns": ["üç","3"],
+      "responses": ["Günde 3 paketten fazla sigara içmek, sağlık açısından ciddi bir risk taşır. Bu miktar sigara tüketimi oldukça yüksek olduğu için size profesyonel yardım ve destek aramanızı öneririm. Sağlık uzmanları, sigarayı bırakma tedavileri ve ilaçlar hakkında size yardımcı olabilir. Sigarayı bırakma sürecinde motivasyonunuzu yüksek tutmak ve sağlıklı alışkanlıklar edinmek önemlidir."]
+    },  
+    {
+      "tag": "4 paket",
+      "patterns": ["dört","4","5","6","7"],
+      "responses": ["Günde 4 paket veya daha fazla sigara içmek, sigara tüketiminin çok yüksek olduğunu göstermektedir. Bu düzeyde sigara içmek ciddi sağlık sorunlarına yol açabilir. Sigarayı bırakma konusunda Yeşilay gibi sigara bırakma kuruluşlarından profesyonel yardım almanızı öneririm."]
+    },
+    {
+      "tag": "yesilay",
+      "patterns": ["yeşilay","yeşilay nedir"],
+      "responses": ["Yeşilay Türkiye'de faaliyet gösteren bir sivil toplum kuruluşudur. Amacı, toplumda bağımlılıklarla mücadele etmek, bağımlılıkların önlenmesi ve tedavisi konusunda bilinçlendirme yapmaktır. Yeşilay, özellikle sigara, alkol, uyuşturucu ve teknoloji bağımlılığı gibi konularda bilinç oluşturarak toplum sağlığını korumayı hedefler."]
+    },
+    {
+      "tag": "success_stories",
+      "patterns": ["Başarı hikayeleri", "bırakmış kişiler"],
+      "responses": ["Birçok insan sigarayı başarıyla bırakmıştır ve bunun hayatlarına olumlu etkileri olmuştur. Başarı hikayeleri motivasyonunuzu artırabilir ve size ilham verebilir. Sigarayı bırakmış kişiler, daha sağlıklı bir yaşam sürdürmekten ve özgürlüğe kavuşmaktan bahsetmektedir."]
+    },
+    {
+      "tag": "statistics",
+      "patterns": ["kanser riski ", "sağlık"],
+      "responses": ["Sigara içenlerde kanser, kalp hastalıkları ve solunum problemleri riski artar. Sigarayı bırakan kişilerde ise akciğer fonksiyonları iyileşir, kalp hastalığı riski azalır ve genel sağlık durumu iyileşir."]
+    },
+    {
+      "tag": "quitting_methods",
+      "patterns": ["Alternetif ne kullabilirim", "Nikotin sakızı veya bant nasıl yardımcı olur?","Nikotin"],
+      "responses": ["Sigarayı bırakmak için nikotin yerine geçen ürünler, akupunktur, hipnoz ve danışmanlık hizmetlerini deneyebilirsiniz. Her yöntemin farklı avantajları ve etkileri vardır. Size en uygun olanını seçmek önemlidir."]
+    },    
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": ["Üzgünüm, sizi anlayamıyorum", "Lütfen daha fazla bilgi verin", "Emin değilim, anladım mı", "Hala buradayım dostum"]
+    },
+    {
+      "tag": "daily_life",
+      "patterns": ["sağlıklı beslenme","spor"],
+      "responses": ["Sağlıklı beslenmek için dengeli bir diyet yapmalı, sebzeleri ve meyveleri tüketmelisiniz. Günlük olarak en az 30 dakika egzersiz yapmak önerilir."]
+    }
+  ]
+}

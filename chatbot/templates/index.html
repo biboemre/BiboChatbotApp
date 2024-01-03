@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>BiboChatbotApp</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-vector/ai-chatbot-seamless-pattern-design-artificial-intelligence-repeat-background-template-wrapping_607579-515.jpg?w=740');
+            background-repeat:repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        {
+        }
+        
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            height: 6vh;
+        }
+
+        .container {
+            margin-bottom: 100px;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .card {
+            margin-top: 80px;
+            width: 100%;
+            max-width: 2000px;
+        }
+
+
+        .card-header {
+            background-color: rgb(230, 230, 230);
+        }
+        
+        
+
+        #chat-content {
+            overflow-y: scroll !important;
+            height: 600px !important;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .chat-question,
+        .chat-answer {
+            flex-basis: 100%;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .chat-question p,
+        .chat-answer p {
+            margin-top: 3px;
+            border-radius: 5px;
+            padding: 14px;
+        }
+
+        .chat-question p {
+            background-color: #F2F2F2;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .chat-answer p {
+            background-color: #E2F7CB;
+            margin-right: auto;
+            margin-left: 10px;
+        }
+
+        .avatar {
+            margin-top: 10px;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+
+        .publisher {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .publisher-input {
+            flex-grow: 1;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        .publisher-btn {
+            margin-left: 10px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 6vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #343a40;
+            color: #fff;
+            padding: 0 20px;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 18px; /* Yazı boyutunu istediğiniz gibi ayarlayabilirsiniz */
+        }
+        
+        .footer a {
+            color: #90ee90 ;
+            font-size: 20px; /* Logoların boyutunu istediğiniz gibi ayarlayabilirsiniz */
+        }
+        
+        .footer i {
+            margin: 0 6px; /* Logolar arasındaki boşluğu ayarlayabilirsiniz */
+        }
+
+        .banner {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 10%;
+            height: 100vh;
+            background-image: url("path/to/banner-image.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url_for('index') }}">Bibo Chatbot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{{ url_for('articles') }}">Makaleler</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner"></div>
+
+    <div class="container">
+        <div class="card card-bordered">
+            <div class="card-header">
+                <h4 class="card-title"><strong>Bibo Chatbot App</strong></h4>
+            </div>
+            <div class="ps-container ps-theme-default ps-active-y" id="chat-content">
+                <div id="chat-history">
+                    <div class="chat-container">
+                        <div class="chat-answer">
+                            <div class="avatar avatar-xs">
+                                <img src="https://img.icons8.com/color/36/000000/administrator-male.png"
+                                    alt="Avatar">
+                            </div>
+                            <p>Merhaba, nasıl yardımcı olabilirim?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="publisher bt-1 border-light">
+                <input class="publisher-input form-control" type="text" name="question" id="question"
+                    placeholder="Soru sor.." onkeydown="if (event.keyCode === 13) sendMessage();">
+                <button class="publisher-btn text-info" onclick="sendMessage();" id="submit-button"><i
+                        class="fa fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer bg-dark">
+        <p style="font-size: 18px;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ye%C5%9Filay_logo.svg/1200px-Ye%C5%9Filay_logo.svg.png" alt="Yeşilay Logo" style="height: 36px; width: 36px; margin-right: 10px;">
+            Daha Profesyonel Bir yardım için <a href="https://www.yesilay.org.tr/sigara-birakma" target="_blank">Yeşilay</a>'a başvurabilirsiniz.
+        </p>
+        <div class="network">
+            <a href="mailto:bibo.emre@gmail.com" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/emrebibo" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/bibo.emre/" target="_blank"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/biboemre/" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sendMessage() {
+            var question = $("#question").val().trim();
+            if (question !== "") {
+                var chatHistory = document.getElementById("chat-history");
+
+                var chatContainerDiv = document.createElement("div");
+                chatContainerDiv.className = "chat-container";
+
+                var questionDiv = document.createElement("div");
+                questionDiv.className = "chat-question";
+                questionDiv.innerHTML = `
+                    <p>${question}</p>
+                `;
+
+                var answerDiv = document.createElement("div");
+                answerDiv.className = "chat-answer";
+                answerDiv.innerHTML = `
+                    <div class="avatar avatar-xs">
+                        <img src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="Avatar">
+                    </div>
+                    <p>Loading...</p>
+                `;
+
+                chatContainerDiv.appendChild(questionDiv);
+                chatContainerDiv.appendChild(answerDiv);
+                chatHistory.appendChild(chatContainerDiv);
+
+                $("#question").val("");
+
+                // Make AJAX request to get the answer from the backend
+                $.ajax({
+                    type: "POST",
+                    url: "/chatbot",
+                    data: {
+                        question: question
+                    },
+                    success: function (result) {
+                        var answer = result.response;
+                        answerDiv.innerHTML = `
+                            <div class="avatar avatar-xs">
+                                <img src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="Avatar">
+                            </div>
+                            <p>${answer}</p>
+                        `;
+
+                        // Scroll to the bottom of the chat content
+                        var chatContent = document.getElementById("chat-content");
+                        chatContent.scrollTop = chatContent.scrollHeight;
+                    },
+                    error: function (result) {
+                        alert('error');
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
