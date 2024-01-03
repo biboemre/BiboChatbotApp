@@ -1,1 +1,18 @@
-* text=auto
+* linguist-detectable=false
+
+*.py linguist-detectable=true
+*.pyc linguist-detectable=false
+*.pyo linguist-detectable=false
+*.pyw linguist-detectable=true
+*.pyx linguist-detectable=true
+*.pxd linguist-detectable=true
+*.pxi linguist-detectable=true
+*.rpy linguist-detectable=true
+*.rpyc linguist-detectable=false
+*.rpyo linguist-detectable=false
+*.rpyw linguist-detectable=true
+*.wsgi linguist-detectable=true
+*.flask linguist-detectable=true
+*.css linguist-detectable=false
+*.js linguist-detectable=true
+*.java linguist-detectable=false
